@@ -18,6 +18,8 @@
  * Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335, USA.
  */
 
+#include "ExtraTelescopePlugin.hpp"
+
 #include "StelApp.hpp"
 #include "StelCore.hpp"
 #include "StelProjector.hpp"
@@ -25,62 +27,58 @@
 #include "StelLocaleMgr.hpp"
 #include "StelModuleMgr.hpp"
 
-#include "DynamicPluginTemplate.hpp"
-#include "DynamicPluginTemplateWindow.hpp"
-
 #include <QDebug>
+#include "gui/ExtraTelescopePluginWindow.hpp"
 
 /*************************************************************************
  This method is the one called automatically by the StelModuleMgr just 
  after loading the dynamic library
 *************************************************************************/
-StelModule* DynamicPluginTemplatePluginInterface::getStelModule() const
+StelModule* ExtraTelescopePluginInterface::getStelModule() const
 {
-	return new DynamicPluginTemplate();
+	return new ExtraTelescopePlugin();
 }
 
-StelPluginInfo DynamicPluginTemplatePluginInterface::getPluginInfo() const
+StelPluginInfo ExtraTelescopePluginInterface::getPluginInfo() const
 {
 	StelPluginInfo info;
-	info.id = "DynamicPluginTemplate";
-	info.displayedName = N_("Dynamic Plugin Template");
-	info.authors = "Kirill Snezhko, Alexander Wolf";
-	info.contact = "stellarium@googlegroups.com";
-	info.description = N_("Startpoint for the dynamic plugin development.");    
-	info.acknowledgements = N_("Optional acknowledgements...");
-	info.version = DYNAMICPLUGINTEMPLATE_VERSION;
-	info.license = DYNAMICPLUGINTEMPLATE_LICENSE;
+	info.id = "ExtraTelescopePlugin";
+	info.displayedName = N_("Extra Telescope Commands Plugin");
+	info.authors = "Alexander Semion";
+	info.contact = "spin7ion@gmail.com";
+	info.description = N_("Extra telescope commands sender.");
+	info.acknowledgements = N_("");
+	info.version = EXTRATELESCOPEPLUGIN_VERSION;
+	info.license = EXTRATELESCOPEPLUGIN_LICENSE;
 	return info;
 }
 
 /*************************************************************************
  Constructor
 *************************************************************************/
-DynamicPluginTemplate::DynamicPluginTemplate()
+ExtraTelescopePlugin::ExtraTelescopePlugin()
 {
-	setObjectName("DynamicPluginTemplate");
-	mainWindow = new DynamicPluginTemplateWindow();
-	font.setPixelSize(26);
+	setObjectName("ExtraTelescopePlugin");
+	mainWindow = new ExtraTelescopePluginWindow();
 }
 
 /*************************************************************************
  Destructor
 *************************************************************************/
-DynamicPluginTemplate::~DynamicPluginTemplate()
+ExtraTelescopePlugin::~ExtraTelescopePlugin()
 {
 }
 
 /*************************************************************************
  Reimplementation of the getCallOrder method
 *************************************************************************/
-double DynamicPluginTemplate::getCallOrder(StelModuleActionName actionName) const
+double ExtraTelescopePlugin::getCallOrder(StelModuleActionName actionName) const
 {
-	if (actionName==StelModule::ActionDraw)
-		return StelApp::getInstance().getModuleMgr().getModule("LandscapeMgr")->getCallOrder(actionName)+10.;
+
 	return 0.;
 }
 
-bool DynamicPluginTemplate::configureGui(bool show)
+bool ExtraTelescopePlugin::configureGui(bool show)
 {
 	if (show)
 		mainWindow->setVisible(true);
@@ -91,12 +89,23 @@ bool DynamicPluginTemplate::configureGui(bool show)
 /*************************************************************************
  Init our module
 *************************************************************************/
-void DynamicPluginTemplate::init()
+void ExtraTelescopePlugin::init()
 {
-	qDebug() << "init called for DynamicPluginTemplate";
+	qDebug() << "init called for ExtraTelescopePlugin";
+
+	StelGui* gui = dynamic_cast<StelGui*>(StelApp::getInstance().getGui());
+	if (gui!=Q_NULLPTR)
+	{
+		/*toolbarButton =	new StelButton(Q_NULLPTR,
+						   QPixmap(":/telescopeControl/button_Slew_Dialog_on.png"),
+						   QPixmap(":/telescopeControl/button_Slew_Dialog_off.png"),
+						   QPixmap(":/graphicGui/miscGlow32x32.png"),
+						   "actionShow_Slew_Window");
+		gui->getButtonBar()->addButton(toolbarButton, "065-pluginsGroup");*/
+	}
 }
 
-void DynamicPluginTemplate::deinit()
+void ExtraTelescopePlugin::deinit()
 {
 	delete mainWindow;
 }
@@ -104,10 +113,10 @@ void DynamicPluginTemplate::deinit()
 /*************************************************************************
  Draw our module. This should print "Hello world!" in the main window
 *************************************************************************/
-void DynamicPluginTemplate::draw(StelCore* core)
+void ExtraTelescopePlugin::draw(StelCore* core)
 {
-	StelPainter painter(core->getProjection2d());
-	painter.setColor(1,1,1,1);
-	painter.setFont(font);
-	painter.drawText(300, 300, "Hello, Dynamic World!");
+	//StelPainter painter(core->getProjection2d());
+	//painter.setColor(1,1,1,1);
+	//painter.setFont(font);
+	//painter.drawText(300, 300, "Hello, Dynamic World!");
 }

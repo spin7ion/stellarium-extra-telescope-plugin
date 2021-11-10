@@ -17,30 +17,41 @@
  * Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335, USA.
  */
 
-#ifndef DYNAMICPLUGINTEMPLATEWINDOW_HPP
-#define DYNAMICPLUGINTEMPLATEWINDOW_HPP
+#ifndef EXTRATELESCOPEPLUGINWINDOW_HPP
+#define EXTRATELESCOPEPLUGINWINDOW_HPP
 
 #include "StelDialog.hpp"
+//#include </home/spin7ion/tmp/stellarium/plugins/TelescopeControl/src/TelescopeControl.hpp>
+#include <TelescopeControl.hpp>
+#include <QFont>
 
-class Ui_dynamicPluginTemplateWindowForm;
+class Ui_extraTelescopePluginWindowForm;
 
-class DynamicPluginTemplateWindow : public StelDialog
+class ExtraTelescopePluginWindow : public StelDialog
 {
     Q_OBJECT
 
 public:
-    DynamicPluginTemplateWindow();
-    ~DynamicPluginTemplateWindow();
+	ExtraTelescopePluginWindow();
+    ~ExtraTelescopePluginWindow();
+
 
 public slots:
     void retranslate();
+    void setTime();
+    void shoot();
 
 protected:
     void createDialogContent();
 
 private:
-    Ui_dynamicPluginTemplateWindowForm *ui;
-    DynamicPluginTemplate *dynamicPluginTemplate;
+    Ui_extraTelescopePluginWindowForm *ui;
+    ExtraTelescopePlugin *extraTelescopePlugin;
+    void updateTelescopeList();
+    TelescopeControl* telescopeControl;
+    QHash<QString, int> connectedSlotsByName;
+    void onCurrentTelescopeChanged();
+    QSharedPointer<TelescopeClient> currentTelescope() const;
 
 };
 

@@ -1,0 +1,16 @@
+CMakeLists.txt
+LICENSE
+README.md
+builds/unix/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c
+builds/unix/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
+builds/unix/src/ExtraTelescopePlugin-dynamic_autogen/DMHXEJ42XS/moc_ExtraTelescopePluginWindow.cpp
+builds/unix/src/ExtraTelescopePlugin-dynamic_autogen/EWIEGA46WW/moc_ExtraTelescopePlugin.cpp
+builds/unix/src/ExtraTelescopePlugin-dynamic_autogen/moc_predefs.h
+builds/unix/src/ExtraTelescopePlugin-dynamic_autogen/mocs_compilation.cpp
+builds/unix/src/ui_ExtraTelescopePluginWindow.h
+src/CMakeLists.txt
+src/ExtraTelescopePlugin.cpp
+src/ExtraTelescopePlugin.hpp
+src/gui/ExtraTelescopePluginWindow.cpp
+src/gui/ExtraTelescopePluginWindow.hpp
+src/gui/ExtraTelescopePluginWindow.ui

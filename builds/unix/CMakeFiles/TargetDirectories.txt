@@ -1,0 +1,14 @@
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/install/strip.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/install/local.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/install.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/list_install_components.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/rebuild_cache.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/CMakeFiles/edit_cache.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/install/strip.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/install/local.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/install.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/list_install_components.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/rebuild_cache.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/edit_cache.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/ExtraTelescopePlugin-dynamic.dir
+/home/spin7ion/tmp/stellarium-extra-telescope-plugin/builds/unix/src/CMakeFiles/ExtraTelescopePlugin-dynamic_autogen.dir

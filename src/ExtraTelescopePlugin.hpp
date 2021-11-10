@@ -18,21 +18,21 @@
  * Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335, USA.
  */
 
-#ifndef DYNAMICPLUGINTEMPLATE_HPP
-#define DYNAMICPLUGINTEMPLATE_HPP
+#ifndef EXTRATELESCOPEPLUGIN_HPP
+#define EXTRATELESCOPEPLUGIN_HPP
 
 #include "StelModule.hpp"
-#include <QFont>
+#include "StelGui.hpp"
 
-class DynamicPluginTemplateWindow; 
+class ExtraTelescopePluginWindow;
 
 //! This is an example of a plug-in which can be dynamically loaded into stellarium
-class DynamicPluginTemplate : public StelModule
+class ExtraTelescopePlugin : public StelModule
 {
 	Q_OBJECT
 public:
-	DynamicPluginTemplate();
-	~DynamicPluginTemplate();
+	ExtraTelescopePlugin();
+	~ExtraTelescopePlugin();
 
 	///////////////////////////////////////////////////////////////////////////
 	// Methods defined in the StelModule class
@@ -43,9 +43,9 @@ public:
 	virtual double getCallOrder(StelModuleActionName actionName) const;
 	virtual bool configureGui(bool show);
 private:
-	// Font used for displaying our text
-	QFont font;
-	DynamicPluginTemplateWindow * mainWindow;
+	ExtraTelescopePluginWindow * mainWindow;
+	// Toolbar button to toggle the Slew window
+	StelButton* toolbarButton;
 };
 
 
@@ -53,7 +53,7 @@ private:
 #include "StelPluginInterface.hpp"
 
 //! This class is used by Qt to manage a plug-in interface
-class DynamicPluginTemplatePluginInterface : public QObject, public StelPluginInterface
+class ExtraTelescopePluginInterface : public QObject, public StelPluginInterface
 {
 	Q_OBJECT
 	Q_PLUGIN_METADATA(IID StelPluginInterface_iid)
@@ -64,4 +64,4 @@ public:
 	virtual QObjectList getExtensionList() const { return QObjectList(); }
 };
 
-#endif // DYNAMICPLUGINTEMPLATE_HPP
+#endif // ExtraTelescopePlugin_HPP
